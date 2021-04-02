@@ -1,11 +1,13 @@
 package com.android.foodorderapp.adapters;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.foodorderapp.R;
 import com.android.foodorderapp.model.RestaurantModel;
 
 import java.util.List;
@@ -26,7 +28,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
     @NonNull
     @Override
     public RestaurantListAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_row, false)
     }
 
     @Override
@@ -36,7 +38,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
 
     @Override
     public int getItemCount() {
-        return 0;
+        return restaurantModelList.size();
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
