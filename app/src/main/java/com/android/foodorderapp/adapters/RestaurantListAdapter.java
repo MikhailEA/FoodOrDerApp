@@ -3,6 +3,8 @@ package com.android.foodorderapp.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,11 +30,13 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
     @NonNull
     @Override
     public RestaurantListAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_row, false)
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_row, parent, false)
     }
 
     @Override
     public void onBindViewHolder(@NonNull RestaurantListAdapter.MyViewHolder holder, int position) {
+
+        holder.restaurantName.setText(restaurantModelList.get(position).getName());
 
     }
 
@@ -43,9 +47,22 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
+        TextView  restaurantName;
+        TextView  restaurantAddress;
+        TextView  restaurantHours;
+        ImageView thumbImage;
+
         public MyViewHolder(View view) {
             super(view);
+            restaurantName = view.findViewById(R.id.restaurantName);
+            restaurantAddress = view.findViewById(R.id.restaurantAdress);
+            restaurantHours = view.findViewById(R.id.restaurantHours);
+            thumbImage = view.findViewById(R.id.thumbImage);
 
         }
+    }
+
+    public interface RestaurantListClickListener {
+        public void onItemClick(RestaurantModel restaurantModel);
     }
 }
