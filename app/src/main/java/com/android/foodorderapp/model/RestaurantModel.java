@@ -1,8 +1,11 @@
 package com.android.foodorderapp.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class RestaurantModel {
+public class RestaurantModel implements Parcelable {
 
     private String name;
     private String address;
@@ -10,6 +13,26 @@ public class RestaurantModel {
     private float delivery_charge;
     private Hours hours;
     private List<Menu> menus;
+
+    protected RestaurantModel(Parcel in) {
+        name = in.readString();
+        address = in.readString();
+        image = in.readString();
+        delivery_charge = in.readFloat();
+        menus = in.createTypedArrayList(Menu.CREATOR);
+    }
+
+    public static final Creator<RestaurantModel> CREATOR = new Creator<RestaurantModel>() {
+        @Override
+        public RestaurantModel createFromParcel(Parcel in) {
+            return new RestaurantModel(in);
+        }
+
+        @Override
+        public RestaurantModel[] newArray(int size) {
+            return new RestaurantModel[size];
+        }
+    };
 
     public String getName() {
         return name;
@@ -59,5 +82,18 @@ public class RestaurantModel {
         this.menus = menus;
     }
 
-    
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(address);
+        dest.writeString(image);
+        dest.writeFloat(delivery_charge);
+        dest.writeTypedList(menus);
+    }
 }

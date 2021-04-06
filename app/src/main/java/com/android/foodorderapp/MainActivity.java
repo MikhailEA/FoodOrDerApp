@@ -20,7 +20,7 @@ import java.io.Writer;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RestaurantListAdapter.RestaurantListClickListener {
 
 
     @Override
@@ -33,14 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
         List<RestaurantModel> restaurantModelList = getRestaurantData();
 
-        initRecyclerView();
+        initRecyclerView(restaurantModelList);
     }
 
-    private void initRecyclerView() {
+    private void initRecyclerView(List<RestaurantModel> restaurantModelList) {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        RestaurantListAdapter adapter = new RestaurantListAdapter(restaurantModelList, this);
 
-        recyclerView.setAdapter();
+        recyclerView.setAdapter(adapter);
 
     }
 
@@ -67,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+    }
+
+    @Override
+    public void onItemClick(RestaurantModel restaurantModel) {
 
     }
 }
