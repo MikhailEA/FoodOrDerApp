@@ -22,6 +22,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
 
     public RestaurantListAdapter(List<RestaurantModel> restaurantModelList, RestaurantListClickListener clickListener) {
         this.restaurantModelList = restaurantModelList;
+        this.clickListener = clickListener;
     }
 
     public void updateData(List<RestaurantModel> restaurantModelList) {
@@ -71,7 +72,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         public MyViewHolder(View view) {
             super(view);
             restaurantName = view.findViewById(R.id.restaurantName);
-            restaurantAddress = view.findViewById(R.id.restaurantAdress);
+            restaurantAddress = view.findViewById(R.id.restaurantAddress);
             restaurantHours = view.findViewById(R.id.restaurantHours);
             thumbImage = view.findViewById(R.id.thumbImage);
 
