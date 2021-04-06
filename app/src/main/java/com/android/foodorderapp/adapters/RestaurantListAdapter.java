@@ -1,5 +1,6 @@
 package com.android.foodorderapp.adapters;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         return new MyViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull RestaurantListAdapter.MyViewHolder holder, int position) {
 
