@@ -74,5 +74,6 @@ public class MainActivity extends AppCompatActivity implements RestaurantListAda
     @Override
     public void onItemClick(RestaurantModel restaurantModel) {
 
+
     }
 }
