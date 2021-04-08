@@ -34,16 +34,14 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
     @NonNull
     @Override
     public RestaurantListAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_row, parent, false);
-        return new MyViewHolder(view);
+        View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_row, parent, false);
+        return  new MyViewHolder(view);
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull RestaurantListAdapter.MyViewHolder holder, int position) {
-
         holder.restaurantName.setText(restaurantModelList.get(position).getName());
-        holder.restaurantAddress.setText("Adress: " + restaurantModelList.get(position).getAddress());
+        holder.restaurantAddress.setText("Address: "+restaurantModelList.get(position).getAddress());
         holder.restaurantHours.setText("Today's hours: " + restaurantModelList.get(position).getHours().getTodaysHours());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +50,6 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
                 clickListener.onItemClick(restaurantModelList.get(position));
             }
         });
-
         Glide.with(holder.thumbImage)
                 .load(restaurantModelList.get(position).getImage())
                 .into(holder.thumbImage);
@@ -65,7 +62,6 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
-
         TextView  restaurantName;
         TextView  restaurantAddress;
         TextView  restaurantHours;

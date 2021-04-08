@@ -73,9 +73,11 @@ public class Hours {
 
     public String getTodaysHours() {
         Calendar calendar = Calendar.getInstance();
-        Date date = calendar.getTime();
+        Date date  = calendar.getTime();
         String day = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime());
         switch (day) {
+            case "Sunday":
+                return this.Sunday;
             case "Monday":
                 return this.Monday;
             case "Tuesday":
@@ -90,6 +92,7 @@ public class Hours {
                 return this.Saturday;
             default:
                 return this.Sunday;
+
         }
     }
 }

@@ -14,26 +14,6 @@ public class RestaurantModel implements Parcelable {
     private Hours hours;
     private List<Menu> menus;
 
-    protected RestaurantModel(Parcel in) {
-        name = in.readString();
-        address = in.readString();
-        image = in.readString();
-        delivery_charge = in.readFloat();
-        menus = in.createTypedArrayList(Menu.CREATOR);
-    }
-
-    public static final Creator<RestaurantModel> CREATOR = new Creator<RestaurantModel>() {
-        @Override
-        public RestaurantModel createFromParcel(Parcel in) {
-            return new RestaurantModel(in);
-        }
-
-        @Override
-        public RestaurantModel[] newArray(int size) {
-            return new RestaurantModel[size];
-        }
-    };
-
     public String getName() {
         return name;
     }
@@ -82,6 +62,25 @@ public class RestaurantModel implements Parcelable {
         this.menus = menus;
     }
 
+    protected RestaurantModel(Parcel in) {
+        name = in.readString();
+        address = in.readString();
+        image = in.readString();
+        delivery_charge = in.readFloat();
+        menus = in.createTypedArrayList(Menu.CREATOR);
+    }
+
+    public static final Creator<RestaurantModel> CREATOR = new Creator<RestaurantModel>() {
+        @Override
+        public RestaurantModel createFromParcel(Parcel in) {
+            return new RestaurantModel(in);
+        }
+
+        @Override
+        public RestaurantModel[] newArray(int size) {
+            return new RestaurantModel[size];
+        }
+    };
 
     @Override
     public int describeContents() {
