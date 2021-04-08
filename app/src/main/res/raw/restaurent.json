@@ -144,7 +144,7 @@
     "name":"McDonald's",
     "address":"10975 State Bridge Rd.",
     "delivery_charge": 5,
-    "image":"https://www.mcdonalds.com/content/dam/usa/nfl/assets/nav/arches-logo_108x108.jpg",
+    "image":"https://cdn1.flamp.ru/5c66752eb96e5fdbdcce68e0e1ccf1a7.png",
     "hours":{
       "Sunday":"11:00 AM - 7:00 PM",
       "Monday":"10:00 AM - 10:00 PM",
